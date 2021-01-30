@@ -12,7 +12,7 @@ const OUTPUT_FILE = "output.json";
 const TS_DEF_FILE = "output.d.ts";
 
 test("ComponentParser", async (t) => {
-  const input_files = fs.readdirSync(SNAPSHOTS_FOLDER);
+  const input_files = fs.readdirSync(SNAPSHOTS_FOLDER).filter((file) => !file.startsWith("."));
   const parser = new ComponentParser({ verbose: true });
 
   for await (const file of input_files) {
